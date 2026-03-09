@@ -1,0 +1,62 @@
+radix 1  1  1
+io    i  i  i
+vname A1 B1 Ci1
+
+; --- Timing information ---
+tunit 1ns
+trise 0.01
+tfall 0.01
+vih   1.0
+vil   0.0
+
+; --- Test vectors for S1
+; 	A1 	B1 	Ci1
+0  	0 	0 	0	
+1  	0 	0 	1	; {0,0,0} --> {0,0,1} S: R  Ci toggles
+2  	0 	0 	0	; {0,0,1} --> {0,0,0} S: F  Ci toggles
+3  	0	1	0	; {0,0,0} --> {0,1,0} S: R  B toggles
+4  	0	0	0	; {0,1,0} --> {0,0,0} S: F  B toggles
+5  	1	0	0	; {0,0,0} --> {1,0,0} S: R  A toggles
+6  	0	0	0	; {1,0,0} --> {0,0,0} S: F  A toggles
+7	0	1	0	; reset
+8	0	1	1	; {0,1,0} --> {0,1,1} S: F  Ci toggles
+9	0	1	0	; {0,1,1} --> {0,1,0} S: R  Ci toggles
+10	0	0	1	; reset
+11	0	1	1	; {0,0,1} --> {0,1,1} S: F  B toggles
+12	0	0	1	; {0,1,1} --> {0,0,1} S: R  B toggles
+13	1	0	0	; reset
+14	1	0	1	; {1,0,0} --> {1,0,1} S: F  Ci toggles
+15	1	0	0	; {1,0,1} --> {1,0,0} S: R  Ci toggles
+16	1	0	1	; reset
+17	1	1	1	; {1,0,1} --> {1,1,1} S: R  B toggles
+18	1	0	1	; {1,1,1} --> {1,0,1} S: F  B toggles
+19	1	1	0	; reset
+20	1	0	0	; {1,1,0} --> {1,0,0} S: R  B toggles
+21	1	1	0	; {1,0,0} --> {1,1,0} S: F  B toggles
+
+; --- Test vectors for Co1
+; 	A1 	B1 	Ci1
+50	0	0	1	; reset
+51	0	1	1	; {0,0,1} --> {0,1,1} Co: R  B toggles
+52	0	0	1	; {0,1,1} --> {0,0,1} Co: F  B toggles
+53	0	1	0	; reset
+54	0	1	1	; {0,1,0} --> {0,1,1} Co: R  Ci toggles
+55	0	1	0	; {0,1,1} --> {0,1,0} Co: F  Ci toggles
+56	0	1	0	; reset
+57	1	1	0	; {0,1,0} --> {1,1,0} Co: R  A toggles
+58	0	1	0	; {1,1,0} --> {0,1,0} Co: F  A toggles
+59	1	0	0	; reset
+60	1	0	1	; {1,0,0} --> {1,0,1} Co: R  Ci toggles
+61	1	0	0	; {1,0,1} --> {1,0,0} Co: F  Ci toggles
+62	1	0	0	; reset
+63	1	1	0	; {1,0,0} --> {1,1,0} Co: R  B toggles
+64	1	0	0	; {1,1,0} --> {1,0,0} Co: F  B toggles
+65	1	0	1	; reset
+66	1	1	1	; {1,0,1} --> {1,1,1} Co: R  B toggles
+67	1	0	1	; {1,1,1} --> {1,0,1} Co: F  B toggles
+68	1	1	0	; reset
+69	1	1	1	; {1,1,0} --> {1,1,1} Co: R  Ci toggles
+70	1	1	0	; {1,1,1} --> {1,1,0} Co: F  Ci toggles
+71	0	1	1	; reset
+72	1	1	1	; {0,1,1} --> {1,1,1} Co: R  A toggles
+73	0	1	1	; {1,1,1} --> {0,1,1} Co: F  A toggles
